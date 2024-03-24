@@ -1,6 +1,7 @@
+# Join discord for support & updates [here](https://discord.gg/xzRtH4J7vU)
+
 # Cnfair 80% Calculator Extension
 
-# Join discord for support & updates [here](https://discord.gg/xzRtH4J7vU)
 
 The Cnfair 80% Calculator is a Chrome extension designed to automatically calculate and display the price of products at 80% off on [cnfair.com](https://cnfair.com). Created with simplicity in mind, it enhances your shopping experience by instantly showing you the discounted price without any manual calculation.
 
