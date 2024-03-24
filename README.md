@@ -8,8 +8,10 @@ The Cnfair 80% Calculator is a Chrome extension designed to automatically calcul
 ## Features
 
 - **Automatic Calculation:** Automatically applies an 80% discount to product prices on cnfair.com.
+- **Select calculation method:** Select whether you want to show discounted prices or normal prices in EUR, USD and CNY.
 - **Real-time Updates:** Dynamically updates prices as new products are loaded onto the page.
 - **Toggle On/Off:** Easily enable or disable the extension directly from your browser toolbar.
+- **Currency selector:** Easily switch between EUR, USD and CNY.
 
 ## Installation
 
