@@ -1,35 +1,43 @@
+let observer = null;
 
-let isExtensionActive = false;
-let observer = null; 
-function calcPoints() {
-    // Now also ignoring elements that have already been processed
+const exchangeRates = {
+    USD: 1,
+    EUR: 0.9, 
+    CNY: 7.0  
+};
+
+function convertPointsToCurrency(points, currency) {
+    const rate = exchangeRates[currency] || exchangeRates.USD; // Fallback to USD if currency is unknown or not provided
+    return points * rate;
+}
+
+function calcPoints(discountType, currency = 'USD') {
     const pointsElements = document.querySelectorAll('.integral:not(.processed)');
-
     pointsElements.forEach(element => {
         const pointsText = element.textContent;
         const pointsMatch = pointsText.match(/\d+/);
         if (pointsMatch) {
             const points = parseInt(pointsMatch[0], 10);
-            const newPoints1 = points / 20;
-            const newPoints = newPoints1 - (newPoints1 * 0.8);
-            element.textContent = `~${newPoints.toFixed(2)}$ (-80%)`;
-            // Mark this element as processed to avoid adjusting it again
+            let newPoints;
+            if (discountType === "80%") {
+                const discountedPoints = points / 20;
+                newPoints = convertPointsToCurrency(discountedPoints, currency) - (convertPointsToCurrency(discountedPoints, currency) * 0.8);
+                element.textContent = `~${newPoints.toFixed(2)} ${currency} (-80%)`;
+            } else {
+                newPoints = convertPointsToCurrency(points / 20, currency);
+                element.textContent = `~${newPoints.toFixed(2)} ${currency} (normal)`;
+            }
             element.classList.add('processed');
         }
     });
 }
 
-function startObserving() {
-    if (observer) return; // If we already have an observer, don't create another
-
-    observer = new MutationObserver(mutations => {
-        calcPoints();
-    });
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-    calcPoints(); // Also call the function immediately to update current points
+function startObserving(discountType, currency) {
+    if (!observer) {
+        observer = new MutationObserver(() => calcPoints(discountType, currency));
+        observer.observe(document.body, {childList: true, subtree: true});
+    }
+    calcPoints(discountType, currency);
 }
 
 function stopObserving() {
@@ -39,22 +47,26 @@ function stopObserving() {
     }
 }
 
-// Listening for messages from the background script
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    if (request.action === "toggleExtension") {
-        isExtensionActive = request.state;
-        if (isExtensionActive) {
-            startObserving();
-        } else {
-            stopObserving();
-        }
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === "applyDiscount") {
+        chrome.storage.local.get(['discountType', 'currency'], (result) => {
+            if (result.discountType !== request.discountType || result.currency !== request.currency) {
+                chrome.storage.local.set({isExtensionActive: true, discountType: request.discountType, currency: request.currency}, () => {
+                    chrome.tabs.reload(sender.tab.id);
+                });
+            } else {
+                startObserving(request.discountType, request.currency);
+            }
+        });
+    } else if (request.action === "disableExtension") {
+        chrome.storage.local.set({isExtensionActive: false});
+        stopObserving();
     }
 });
 
-// Initialize the functionality if the extension was previously active
-chrome.storage.local.get(['isExtensionActive'], function(result) {
+// Initialize based on stored state
+chrome.storage.local.get(['isExtensionActive', 'discountType', 'currency'], (result) => {
     if (result.isExtensionActive) {
-        isExtensionActive = true;
-        startObserving();
+        startObserving(result.discountType, result.currency);
     }
 });

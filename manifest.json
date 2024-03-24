@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Cnfair 80% calculator",
   "version": "1.1",
-  "description": "Automatically calculates 80% off a product \nMade by silentsysop (discord)",
+  "description": "Automatically calculates 80% off a product\nMade by silentsysop (discord)",
   "permissions": [
     "storage",
     "notifications"
@@ -11,10 +11,8 @@
     "https://cnfair.com/*"
   ],
   "action": {
-    "default_title": "Toggle calculator Divider"
-  },
-  "background": {
-    "service_worker": "background.js"
+    "default_title": "Toggle calculator Divider",
+    "default_popup": "popup.html"
   },
   "content_scripts": [
     {
