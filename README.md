@@ -12,10 +12,10 @@ The Cnfair 80% Calculator is a Chrome extension designed to automatically calcul
 
 To install the Cnfair 80% Calculator Chrome Extension, follow these steps:
 
-1. **Download the CRX file (inside zip folder):** First, download the latest version of the extension from [here](https://raw.githubusercontent.com/silentsysop/cnfair-calculator/main/cnfair-calc-converter.zip).
+1. **Download the ZIP file:** First, download the latest version of the extension from [here](https://raw.githubusercontent.com/silentsysop/cnfair-calculator/main/cnfair-calc-converter.zip). After that extract the zip file to desktop.
 2. **Open Chrome Extensions Page:** Navigate to `chrome://extensions/` in your Google Chrome browser.
 3. **Enable Developer Mode:** At the top right corner of the Extensions page, toggle the "Developer mode" switch to enable it.
-4. **Install Extension:** Drag and drop the downloaded `.crx` file onto the Extensions page. Chrome will prompt you to confirm the installation. Click "Add extension" to proceed.
+4. **Install Extension:** Click Load unpacked and select the folder from your desktop and you are done.
 
 After installation, the extension's icon will appear in your browser's toolbar, indicating it's ready to use on cnfair.com.
 Now when you are at cnfair website just click the extension icon and it should update the website prices (refresh may be required, to disable the extension click it again and refresh)
