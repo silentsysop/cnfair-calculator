@@ -28,5 +28,5 @@ The extension automatically detects product prices on cnfair.com and displays th
 
 - Developed by silentsysop (discord).
 
-![Pic](https://media.discordapp.net/attachments/1200831829821886534/1221549085920723014/aaaaaa.png?ex=6612fb3d&is=6600863d&hm=04dfe0268374dccf163770b76bfd1a13fe6d3a1e8034ed103abed4e8d01d0fa9&=&format=webp&quality=lossless&width=1440&height=316)
+![Pic](https://media.discordapp.net/attachments/1200831829821886534/1221552699431063764/image.png?ex=6612fe9a&is=6600899a&hm=9a3c59f39a0605e7a63785b7660bb715365e008a432688d3ff258560911f7ff4&=&format=webp&quality=lossless&width=922&height=671)
 
