@@ -1,9 +1,9 @@
 # Join discord for support & updates [here](https://discord.gg/xzRtH4J7vU)
 
-# Cnfair 80% Calculator Extension
+# Cnfair Calculator Extension
 
 
-The Cnfair 80% Calculator is a Chrome extension designed to automatically calculate and display the price of products at 80% off on [cnfair.com](https://cnfair.com). Created with simplicity in mind, it enhances your shopping experience by instantly showing you the discounted price without any manual calculation.
+The Cnfair Calculator is a Chrome extension designed to automatically calculate and display the price of products at 80% off (flash sale) and old prices (no events) on [cnfair.com](https://cnfair.com). Created with simplicity in mind, it enhances your shopping experience by instantly showing you the discounted price without any manual calculation.
 
 ## Features
 
@@ -15,7 +15,7 @@ The Cnfair 80% Calculator is a Chrome extension designed to automatically calcul
 
 ## Installation
 
-To install the Cnfair 80% Calculator Chrome Extension, follow these steps:
+To install the Cnfair Calculator Chrome Extension, follow these steps:
 
 1. **Download the ZIP file:** First, download the latest version of the extension from [here](https://github.com/silentsysop/cnfair-calculator/releases/tag/v1.0.0). After that extract the zip file to desktop.
 2. **Open Chrome Extensions Page:** Navigate to `chrome://extensions/` in your Google Chrome browser.
@@ -28,6 +28,9 @@ Now when you are at cnfair website just click the extension icon and it should u
 ## How It Works
 
 The extension automatically detects product prices on cnfair.com and displays the discounted price directly on the webpage. Click on the extension icon to toggle the feature on or off as needed.
+
+## Flash sale
+1. For flashsales you want to use `Apply event discount` button and when theres no events going on you use `Show old prices`.
 
 ## Acknowledgments
 
