@@ -19,14 +19,14 @@ function calcPoints(discountType, currency = 'CNY') {
         if (pointsMatch) {
             const points = parseInt(pointsMatch[0], 10);
             const pointsInCNY = points / 100; // Convert points to CNY
+            const pointsInCNY2 = points / 20;
             let newPoints;
             if (discountType === "80%") {
-                const discountedPoints = pointsInCNY * 0.2; // Apply 80% discount
-                newPoints = convertPointsToCurrency(discountedPoints, currency);
+                newPoints = convertPointsToCurrency(pointsInCNY, currency); // 80% discount
                 element.textContent = `~${newPoints.toFixed(2)} ${currency} (-80%)`;
             } else {
-                newPoints = convertPointsToCurrency(pointsInCNY, currency); // No discount
-                element.textContent = `~${newPoints.toFixed(2)} ${currency}`;
+                newPoints = convertPointsToCurrency(pointsInCNY2, currency); // No discount
+                element.textContent = `~${newPoints.toFixed(2)} ${currency} normal`;
             }
             element.classList.add('processed');
         }
